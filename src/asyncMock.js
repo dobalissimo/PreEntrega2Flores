@@ -17,7 +17,7 @@ const products = [
       id: '1',
       name: 'Bourdeaux Simple + Papas Fritas',
       description: 'Medallon x1 Cheddar Fetas x2 Bacon Cebolla Crispy Aderezo Bourdeaux.',
-      price: '+ $2600',
+      price: '2600',
       category: 'simple', 
       img: burger1img,
       stock: 20,
@@ -26,7 +26,7 @@ const products = [
       id: '2',
       name: 'Bourdeaux Doble + Papas Fritas',
       description: 'Medallon x2 Cheddar Fetas x4 Bacon Cebolla Crispy Aderezo Bourdeaux.',
-      price: '+ $2900',
+      price: '2900',
       category: 'doble',
       img: burger2img,
       stock: 20,
@@ -35,7 +35,7 @@ const products = [
       id: '3',
       name: 'Sweet Onion Simple + Papas Fritas',
       description: 'Medallon x1 Cheddar Fetas x2 Bacon Cebolla Caramelizada',
-      price: '+ $2600',
+      price: '2600',
       category: 'simple', 
       img: burger3img,
       stock: 20,
@@ -44,7 +44,7 @@ const products = [
       id: '4',
       name: 'Sweet Onion Doble + Papas Fritas',
       description: 'Medallon x2 Cheddar Fetas x4 Bacon Cebolla Caramelizada',
-      price: '+ $2900',
+      price: '2900',
       category: 'doble',
       img: burger4img,
       stock: 20,
@@ -53,7 +53,7 @@ const products = [
       id: '5',
       name: 'Cheese Burger Simple + Papas Fritas',
       description: 'Medallon x1 Cheddar Feta x2',
-      price: '+ $2200',
+      price: '2200',
       category: 'simple',
       img: burger5img,
       stock: 20,
@@ -62,7 +62,7 @@ const products = [
       id: '6',
       name: 'Cheese Burger Doble + Papas Fritas',
       description: 'Medallon x2 Cheddar x4',
-      price: '+ $2600',
+      price: '2600',
       category: 'doble',
       img: burger6img,
       stock: 20,
@@ -71,7 +71,7 @@ const products = [
       id: '7',
       name: 'Cheese Burger Triple + Papas Fritas',
       description: 'Medallon x3 Cheddar Fetas x6',
-      price: '+ $3100',
+      price: '3100',
       category: 'triple',
       img: burger7img,
       stock: 20,
@@ -80,7 +80,7 @@ const products = [
       id: '8',
       name: 'American Burger Simple + Papas Fritas',
       description: 'Medallon x 1 Cheddar Fetas x2 Tomate Lechuga Cebolla Cruda Dill Pickles Aderezo Thousand Island',
-      price: '+ $2500',
+      price: '2500',
       category: 'simple',
       img: burger8img,
       stock: 20,
@@ -89,7 +89,7 @@ const products = [
       id: '9',
       name: 'American Burger Doble + Papas Fritas',
       description: 'Medallon x2 Cheddar Fetas x4 Tomate Lechuga Cebolla Cruda Dill Pickles Aderezo Thousand Island',
-      price: '+ $2800',
+      price: '2800',
       category: 'doble',
       img: burger9img,
       stock: 20,
@@ -98,7 +98,7 @@ const products = [
       id: '10',
       name: 'Grilled Onion + Papas Fritas',
       description: 'Medallon x2 Cheddar x4 Cebolla Grilled',
-      price: '+ $2600',
+      price: '2600',
       category: 'doble',
       img: burger10img,
       stock: 20,
@@ -107,7 +107,7 @@ const products = [
       id: '11',
       name: 'Royal Simple + Papas Fritas',
       description: 'Medallon x1 Cheddar Fetas x2 Cebolla Cruda Ketchup Mostaza Pepino',
-      price: '+ $2300',
+      price: '2300',
       category: 'simple',
       img: burger11img,
       stock: 20,
@@ -116,7 +116,7 @@ const products = [
       id: '12',
       name: 'Royal Doble + Papas Fritas',
       description: 'Medallon x2 Cheddar Fetas x4 Cebolla Cruda Ketchup Mostaza Pepino',
-      price: '+ $2600',
+      price: '2600',
       category: 'doble',
       img: burger12img,
       stock: 20,
@@ -138,6 +138,16 @@ const products = [
         }, 500)
     })
   }
+
+
+export const getAllProducts = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(products);
+    }, 500);
+  });
+};
+
 
   export const getProductsByCategory = (productCategory) => {
     return new Promise((resolve) => {

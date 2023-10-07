@@ -1,31 +1,36 @@
-import React from 'react';
-import {useState, useEffect } from 'react';
-import { getProductsByCategory  } from '../../asyncMock'
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import ItemList from '../itemlist/ItemList';
-
-import {useParams} from 'react-router-dom'
+import { getProductsByCategory, getProducts } from '../../services/firebase/firebaseService';
 
 function ItemListContainer({ greeting }) {
-  const [products, setProducts] = useState([])
-
+  const [products, setProducts] = useState([]);
   const { categoryID } = useParams();
 
   useEffect(() => {
-    getProductsByCategory(categoryID)
-      .then((response) => {
-        setProducts(response);
-      })
-      .catch((error) => {
+    async function fetchData() {
+      try {
+        if (categoryID) {
+          const response = await getProductsByCategory(categoryID);
+          console.log('Fetched products by category:', response);
+          setProducts(response);
+        } else {
+          const response = await getProducts();
+          console.log('Fetched all products:', response);
+          setProducts(response);
+        }
+      } catch (error) {
         console.error(error);
-      });
-  }, [categoryID]);
-  
+      }
+    }
 
-  
+    fetchData();
+  }, [categoryID]);
+
   return (
     <div className="item-list-container">
       <h1>{greeting}</h1>
-      <ItemList products={products}/>
+      <ItemList categoryID={categoryID} />
     </div>
   );
 }
