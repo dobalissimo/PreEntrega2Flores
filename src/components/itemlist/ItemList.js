@@ -26,9 +26,11 @@ const ItemList = ({ categoryID }) => {
   }, [categoryID]);
 
   return (
-    <div className='ListGroup'>
+    <div className='row'>
       {items.map((item) => (
-        <Item key={item.id} {...item} />
+        <div key={item.id} className='col-md-4'> {/* Use Bootstrap grid classes */}
+          <Item {...item} />
+        </div>
       ))}
     </div>
   );

@@ -1,30 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemList from '../itemlist/ItemList';
 import { getProductsByCategory, getProducts } from '../../services/firebase/firebaseService';
 
 function ItemListContainer({ greeting }) {
-  const [products, setProducts] = useState([]);
   const { categoryID } = useParams();
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchProducts() {
       try {
+        let response;
+
         if (categoryID) {
-          const response = await getProductsByCategory(categoryID);
-          console.log('Fetched products by category:', response);
-          setProducts(response);
+          response = await getProductsByCategory(categoryID);
         } else {
-          const response = await getProducts();
-          console.log('Fetched all products:', response);
-          setProducts(response);
+          response = await getProducts();
         }
+
+        console.log(`Fetched ${categoryID ? 'category' : 'all'} products:`, response);
       } catch (error) {
         console.error(error);
       }
     }
 
-    fetchData();
+    fetchProducts();
   }, [categoryID]);
 
   return (

@@ -10,7 +10,15 @@ function CartWidget() {
   return (
     <div className="cart-widget">
       <FontAwesomeIcon icon={faShoppingCart} />
-      <span className="cart-notification">{totalQuantity}</span>
+      {totalQuantity > 0 ? (
+        <Link to="/cart" className="cart-link">
+          <span className="cart-notification">
+              Ver {totalQuantity === 1 ? 'el producto' : `los ${totalQuantity} productos`}
+          </span>
+        </Link>
+      ) : (
+        <span className="cart-notification">0</span>
+      )}
     </div>
   );
 }

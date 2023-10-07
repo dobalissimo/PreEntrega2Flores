@@ -22,8 +22,8 @@ function NavbarComponent() {
         <Navbar.Toggle aria-controls="navbarNav" />
         <Navbar.Collapse id="navbarNav">
           <Nav className="mr-auto">
-            <Nav.Link as={Link} to="/cervezas">Cervezas</Nav.Link>
-            <NavDropdown title="Gastronomia" id="basic-nav-dropdown">
+            <Nav.Link as={Link} to="/">Inicio</Nav.Link>
+            <NavDropdown title="Burgers" id="basic-nav-dropdown">
               <NavDropdown.Item as={NavLink} to="/category/simple">
                 Simples
               </NavDropdown.Item>

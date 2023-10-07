@@ -1,28 +1,29 @@
 import React from 'react';
 
-// LocationCard component to represent each location card
 const LocationCard = ({ name, address, phone, mapUrl }) => {
-  return (
-    <div className="card col-sm-12 col-md-6 col-lg-3">
-      <iframe
-        src={mapUrl}
-        width="100%"
-        height="100%"
-        style={{ border: '0' }}
-        allowFullScreen=""
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-      ></iframe>
-      <div className="card-body">
-        <h4 className="card-title">{name}</h4>
-        <p className="card-text">{address}</p>
-        <a href={`tel:${phone}`} className="btn btn-success">
-          TEL: {phone}
-        </a>
+    return (
+      <div className="card col-sm-12 col-md-6 col-lg-3">
+        <iframe
+          title={`Location Map: ${name}`} // Add a unique title
+          src={mapUrl}
+          width="100%"
+          height="100%"
+          style={{ border: '0' }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+        <div className="card-body">
+          <h4 className="card-title">{name}</h4>
+          <p className="card-text">{address}</p>
+          <a href={`tel:${phone}`} className="btn btn-success">
+            TEL: {phone}
+          </a>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
+  
 
 const locations = [
   {
@@ -58,14 +59,10 @@ const locations = [
 const LocalesPage = () => {
   return (
     <div>
-      {/* Navbar */}
-      {/* ... (Your navbar code) */}
-
-      {/* Main content */}
+    
       <main className="container-fluid py-3">
         <h1 className="text-center mb-5">¿Dónde podés disfrutar nuestras cervezas?</h1>
         <section className="row center">
-          {/* Map each location data to LocationCard */}
           {locations.map((location, index) => (
             <LocationCard key={index} {...location} />
           ))}

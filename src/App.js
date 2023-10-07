@@ -10,6 +10,8 @@ import Footer from './components/footer/Footer';
 import Checkout from './components/checkout/Checkout';
 import LocalesPage from './pages/Locales';
 import Contacto from './pages/Contacto'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (

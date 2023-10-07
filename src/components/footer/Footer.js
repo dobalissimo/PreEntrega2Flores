@@ -1,4 +1,5 @@
 import React from 'react';
+import '../footer/Footer.css';
 
 const Footer = () => {
   const socialLinks = [
@@ -8,13 +9,13 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="center">
+    <footer>
       <a href="index.html">
         <img src="https://firebasestorage.googleapis.com/v0/b/bourdeaux-926ac.appspot.com/o/img%2Fpng%2Flogo-white.png?alt=media&token=65957b72-f51c-4fb4-b7e3-8a3f61473722&_gl=1*dbkbml*_ga*MTEwMjcxNjMxNi4xNjk1MjUzNDgz*_ga_CW55HF8NVT*MTY5NjYxNDA2MC4zLjEuMTY5NjYxNTY0MS4xMy4wLjA." alt="Logo de Bourdeaux" className="logo" />
         <br />
       </a>
       {socialLinks.map((link, index) => (
-        <a key={index} href={link.url} target="_blank">
+        <a key={index} href={link.url} target="_blank" rel="noopener noreferrer">
           <img src={link.icon} alt={`Nuestro ${link.name}`} className="icono" />
         </a>
       ))}
